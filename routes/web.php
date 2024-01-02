@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,10 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
+});
+
+Route::group(['middleware' => ['auth','verified']], function () {
+    Route::get('/myFiles',[FileController::class,'myFile'])->name('myFiles');
 });
 
 Route::get('/dashboard', function () {
