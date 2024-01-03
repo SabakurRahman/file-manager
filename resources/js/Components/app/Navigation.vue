@@ -1,5 +1,5 @@
 <template>
-    <nav class="w-[300px]">
+    <nav class="min-w-[200px]">
         <div class="h-[80px] px-3 flex items-center gap-3">
             <Link :href="route('myFiles')">
                 <ApplicationLogo
@@ -12,19 +12,20 @@
             <CreateNewDropdown></CreateNewDropdown>
 
             <div class="py-3">
-                <NavLink :href="route('myFiles')" :active="$page.url==='/myFiles'">
+                <NavLink :href="route('myFiles')" :active="$page.url === '/my-files'">
                     My Files
                 </NavLink>
-                <NavLink href="">
+                <NavLink href="#" :active="$page.url === '/shared-with-me'">
                     Shared with Me
                 </NavLink>
-                <NavLink href="">
+                <NavLink href="#" :active="$page.url === '/shared-by-me'">
                     Shared by Me
                 </NavLink>
-                <NavLink href="">
+                <NavLink href="#"  :active="$page.url === '/trash'">
                     Trash
                 </NavLink>
             </div>
+
         </div>
     </nav>
 </template>

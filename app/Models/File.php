@@ -12,6 +12,11 @@ class File extends Model
 {
     use HasFactory,HasCreatorAndUpdater,NodeTrait,SoftDeletes;
 
+  public function isOwnedBy($id): bool
+  {
+      return $this->created_by == $id;
+  }
+
 
 
 

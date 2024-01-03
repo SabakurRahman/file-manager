@@ -28,6 +28,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['auth','verified']], function () {
     Route::get('/myFiles',[FileController::class,'myFile'])->name('myFiles');
+    Route::post('/create-folder',[FileController::class,'createFolder'])->name('createFolder');
 });
 
 Route::get('/dashboard', function () {
